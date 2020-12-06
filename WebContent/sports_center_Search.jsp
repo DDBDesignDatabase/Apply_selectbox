@@ -10,19 +10,86 @@
 <jsp:useBean id="Juso_" class="sports_center.Juso" scope="page"/>
 <!DOCTYPE html>
 <html lang="ko">
+<style>
+ <link href="CSS/styles.css" rel="stylesheet" type="text/css" />
+<link href='http://fonts.googleapis.com/css?family=Ropa+Sans' rel='stylesheet' type='text/css'>
+<link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro' rel='stylesheet' type='text/css'>
+* {
+  padding: 0;
+  margin: 0;
+}
+
+
+body {
+  background: #eeebe7;
+  padding: 100px 20px;
+  text-align: center;
+  position: absolute;
+  left:35%;
+  
+}
+
+h1{font-family: 'Ropa Sans', sans-serif; font-size:26px;text-transform:uppercase; font-weight:normal; color:#84817a; }
+
+select {
+
+    width: 200px; /* 원하는 너비설정 */
+    padding: .8em .5em; /* 여백으로 높이 설정 */
+    font-family: inherit;  /* 폰트 상속 */
+    background: url('/images/icon-more.png') no-repeat 95% 50%; 
+    border: 1px solid #999;
+    border-radius: 0px; /* iOS 둥근모서리 제거 */
+    -webkit-appearance: none; /* 네이티브 외형 감추기 */
+    -moz-appearance: none;
+    appearance: none;
+}
+
+.selectbox{
+	background-color: #f7f1e3
+	width:500px;
+	height: 250px;
+	border: 1px solid #cf9359;
+	padding: 20px;
+	
+}
+
+input {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  box-sizing: border-box;
+  border: none;
+  border-radius: 4px;
+  background-color: #aaa69d;
+  color: white;
+  transition: width 0.4s ease-in-out;
+}
+
+
+
+</style>
     <head>
         <Title>검색</Title> 
         <Meta Http-Equiv="Content-Type" Content="text/html; charset=utf-8">
         <script type="text/javascript" src="http://code.jquery.com/jquery.js"></script>
     </head>
  	<form name="form1"  method="post" action="sports_center.jsp"> 
-    시도: <select name="mainCategory" style="width:200px">
-        <option value="">전체</option>
-    </select>
-    시군구: <select name="subCategory" style="width:200px">
-        <option value="">전체</option>
-    </select>
-    <input type="submit" class="btn btn-primary form-control" value="검색">
+ 	
+	 	    <div class="selectbox">
+
+			    <h1>시도: <select name="mainCategory" style="width:200px">
+			        <option value=""><a>시도 검색<a></option>
+			    </select>
+			 	</h1>
+			
+			    <h1>시군구: <select name="subCategory" style="width:200px">
+			        <option value=""><a>시군구 검색<a></option>
+			    </select>
+			    </h1>
+			 	</br>
+			    <input type="submit" class="btn btn-primary form-control" value="검색">
+
+	    	</div>
     </form>
  
 <script type="text/javascript">
@@ -41,9 +108,9 @@ $(document).ready(function() {
 		
 		try{
 			Class.forName("org.postgresql.Driver");
-			String url = "jdbc:postgresql://localhost:5432/postgres";
-			String id = "postgres";
-			String pw = "1234";
+			String url = "jdbc:postgresql://localhost:5432/Library";
+			String id = "hyewon";
+			String pw = "zxcasd123";
 			
 			Connection con = DriverManager.getConnection(url, id, pw);
 			Statement st = con.createStatement();
@@ -117,9 +184,9 @@ $(document).ready(function() {
 		
 		try{
 			Class.forName("org.postgresql.Driver");
-			String url = "jdbc:postgresql://localhost:5432/postgres";
-			String id = "postgres";
-			String pw = "1234";
+			String url = "jdbc:postgresql://localhost:5432/Library";
+			String id = "hyewon";
+			String pw = "zxcasd123";
 			Connection con = DriverManager.getConnection(url, id, pw);
 			Statement st = con.createStatement();
 			ResultSet rs = st.executeQuery("SELECT NAME, nSI_DO, nSI_GUN_GU, FACILITY FROM SPORTS_CENTER where nSI_DO='서울특별시'");

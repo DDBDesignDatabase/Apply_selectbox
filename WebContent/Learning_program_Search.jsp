@@ -6,8 +6,8 @@
 <%@ page import="java.sql.DriverManager"%>
 <%@ page import="java.sql.PreparedStatement"%>
 <%@ page import="java.util.ArrayList"%>
-<jsp:useBean id="library_" class="library.Library" scope="page"/>
-<jsp:useBean id="Juso_" class="library.Juso" scope="page"/>
+<jsp:useBean id="Learning_Program_" class="lecture.Learning_Program" scope="page"/>
+<jsp:useBean id="Juso_" class="lecture.Juso" scope="page"/>
 <!DOCTYPE html>
 <html lang="ko">
 <style>
@@ -73,8 +73,7 @@ input {
         <Meta Http-Equiv="Content-Type" Content="text/html; charset=utf-8">
         <script type="text/javascript" src="http://code.jquery.com/jquery.js"></script>
     </head>
-
- 	<form name="form1"  method="post" action="library.jsp"> 
+ 	<form name="form1"  method="post" action="Learning_program.jsp"> 
  	
 	 	    <div class="selectbox">
 
@@ -92,8 +91,6 @@ input {
 
 	    	</div>
     </form>
-
-    
  
 <script type="text/javascript">
  
@@ -118,7 +115,7 @@ $(document).ready(function() {
 			String pw = "zxcasd123";
 			Connection con = DriverManager.getConnection(url, id, pw);
 			Statement st = con.createStatement();
-			ResultSet rs = st.executeQuery("SELECT NAME, nSI_DO, nSI_GUN_GU, HOLIDAY FROM Library");
+			ResultSet rs = st.executeQuery("SELECT NAME, nSI_DO, nSI_GUN_GU, ADDRESS, T_NAME, HP, ON_OFF FROM Learning_Program");
 			while (rs.next()) {
 				sidoList.add(rs.getString("nSI_DO"));
 				sigunguList.add(rs.getString("nSI_GUN_GU"));
@@ -161,7 +158,6 @@ $(document).ready(function() {
     var subCategoryArray = new Array();
     var subCategoryObject = new Object();
     
-    //스포츠에 해당하는 sub category 리스트
     
     <%
     String si_gu = null;
@@ -198,7 +194,7 @@ $(document).ready(function() {
 			String pw = "zxcasd123";
 			Connection con = DriverManager.getConnection(url, id, pw);
 			Statement st = con.createStatement();
-			ResultSet rs = st.executeQuery("SELECT NAME, nSI_DO, nSI_GUN_GU, HOLIDAY FROM Library where nSI_DO='서울특별시'");
+			ResultSet rs = st.executeQuery("SELECT NAME, nSI_DO, nSI_GUN_GU, ADDRESS, T_NAME, HP, ON_OFF FROM learning_program where nSI_DO='서울특별시'");
 			while (rs.next()) {
 				sidoList.add(rs.getString("nSI_DO"));
 				sigunguList.add(rs.getString("nSI_GUN_GU"));
@@ -215,7 +211,7 @@ $(document).ready(function() {
 	        sidoList.clear();
 	        sigunguList.clear();
 	        //부산광역시
-	        rs = st.executeQuery("SELECT NAME, nSI_DO, nSI_GUN_GU, HOLIDAY FROM Library where nSI_DO='부산광역시'");
+	        rs = st.executeQuery("SELECT NAME, nSI_DO, nSI_GUN_GU, ADDRESS, T_NAME, HP, ON_OFF FROM learning_program where nSI_DO='부산광역시'");
 			while (rs.next()) {
 				sidoList.add(rs.getString("nSI_DO"));
 				sigunguList.add(rs.getString("nSI_GUN_GU"));
@@ -232,7 +228,7 @@ $(document).ready(function() {
 	        sidoList.clear();
 	        sigunguList.clear();
 	        
-	        rs = st.executeQuery("SELECT NAME, nSI_DO, nSI_GUN_GU, HOLIDAY FROM Library where nSI_DO='대전광역시'");
+	        rs = st.executeQuery("SELECT NAME, nSI_DO, nSI_GUN_GU, ADDRESS, T_NAME, HP, ON_OFF FROM learning_program where nSI_DO='대전광역시'");
 			while (rs.next()) {
 				sidoList.add(rs.getString("nSI_DO"));
 				sigunguList.add(rs.getString("nSI_GUN_GU"));
@@ -249,7 +245,7 @@ $(document).ready(function() {
 	        sidoList.clear();
 	        sigunguList.clear();
 	        
-	        rs = st.executeQuery("SELECT NAME, nSI_DO, nSI_GUN_GU, HOLIDAY FROM Library where nSI_DO='충청북도'");
+	        rs = st.executeQuery("SELECT NAME, nSI_DO, nSI_GUN_GU, ADDRESS, T_NAME, HP, ON_OFF FROM learning_program where nSI_DO='충청북도'");
 			while (rs.next()) {
 				sidoList.add(rs.getString("nSI_DO"));
 				sigunguList.add(rs.getString("nSI_GUN_GU"));
@@ -265,7 +261,7 @@ $(document).ready(function() {
 	        sidoList.clear();
 	        sigunguList.clear();
 	        
-	        rs = st.executeQuery("SELECT NAME, nSI_DO, nSI_GUN_GU, HOLIDAY FROM Library where nSI_DO='울산광역시'");
+	        rs = st.executeQuery("SELECT NAME, nSI_DO, nSI_GUN_GU, ADDRESS, T_NAME, HP, ON_OFF FROM learning_program where nSI_DO='울산광역시'");
 			while (rs.next()) {
 				sidoList.add(rs.getString("nSI_DO"));
 				sigunguList.add(rs.getString("nSI_GUN_GU"));
@@ -282,7 +278,7 @@ $(document).ready(function() {
 	        sidoList.clear();
 	        sigunguList.clear();
 	        
-	        rs = st.executeQuery("SELECT NAME, nSI_DO, nSI_GUN_GU, HOLIDAY FROM Library where nSI_DO='경기도'");
+	        rs = st.executeQuery("SELECT NAME, nSI_DO, nSI_GUN_GU, ADDRESS, T_NAME, HP, ON_OFF FROM learning_program where nSI_DO='경기도'");
 			while (rs.next()) {
 				sidoList.add(rs.getString("nSI_DO"));
 				sigunguList.add(rs.getString("nSI_GUN_GU"));
@@ -299,7 +295,7 @@ $(document).ready(function() {
 	        sidoList.clear();
 	        sigunguList.clear();
 	        
-	        rs = st.executeQuery("SELECT NAME, nSI_DO, nSI_GUN_GU, HOLIDAY FROM Library where nSI_DO='광주광역시'");
+	        rs = st.executeQuery("SELECT NAME, nSI_DO, nSI_GUN_GU, ADDRESS, T_NAME, HP, ON_OFF FROM learning_program where nSI_DO='광주광역시'");
 			while (rs.next()) {
 				sidoList.add(rs.getString("nSI_DO"));
 				sigunguList.add(rs.getString("nSI_GUN_GU"));
@@ -316,7 +312,7 @@ $(document).ready(function() {
 	        sidoList.clear();
 	        sigunguList.clear();
 	        
-	        rs = st.executeQuery("SELECT NAME, nSI_DO, nSI_GUN_GU, HOLIDAY FROM Library where nSI_DO='전라남도'");
+	        rs = st.executeQuery("SELECT NAME, nSI_DO, nSI_GUN_GU, ADDRESS, T_NAME, HP, ON_OFF FROM learning_program where nSI_DO='전라남도'");
 			while (rs.next()) {
 				sidoList.add(rs.getString("nSI_DO"));
 				sigunguList.add(rs.getString("nSI_GUN_GU"));
@@ -332,7 +328,7 @@ $(document).ready(function() {
 	        }
 	        sidoList.clear();
 	        sigunguList.clear();
-	        rs = st.executeQuery("SELECT NAME, nSI_DO, nSI_GUN_GU, HOLIDAY FROM Library where nSI_DO='인천광역시'");
+	        rs = st.executeQuery("SELECT NAME, nSI_DO, nSI_GUN_GU, ADDRESS, T_NAME, HP, ON_OFF FROM learning_program where nSI_DO='인천광역시'");
 			while (rs.next()) {
 				sidoList.add(rs.getString("nSI_DO"));
 				sigunguList.add(rs.getString("nSI_GUN_GU"));
@@ -348,7 +344,7 @@ $(document).ready(function() {
 	        }
 	        sidoList.clear();
 	        sigunguList.clear();
-	        rs = st.executeQuery("SELECT NAME, nSI_DO, nSI_GUN_GU, HOLIDAY FROM Library where nSI_DO='강원도'");
+	        rs = st.executeQuery("SELECT NAME, nSI_DO, nSI_GUN_GU, ADDRESS, T_NAME, HP, ON_OFF FROM learning_program where nSI_DO='강원도'");
 			while (rs.next()) {
 				sidoList.add(rs.getString("nSI_DO"));
 				sigunguList.add(rs.getString("nSI_GUN_GU"));
@@ -364,7 +360,7 @@ $(document).ready(function() {
 	        }
 	        sidoList.clear();
 	        sigunguList.clear();
-	        rs = st.executeQuery("SELECT NAME, nSI_DO, nSI_GUN_GU, HOLIDAY FROM Library where nSI_DO='경상남도'");
+	        rs = st.executeQuery("SELECT NAME, nSI_DO, nSI_GUN_GU, ADDRESS, T_NAME, HP, ON_OFF FROM learning_program where nSI_DO='경상남도'");
 			while (rs.next()) {
 				sidoList.add(rs.getString("nSI_DO"));
 				sigunguList.add(rs.getString("nSI_GUN_GU"));
@@ -380,7 +376,7 @@ $(document).ready(function() {
 	        }
 	        sidoList.clear();
 	        sigunguList.clear();
-	        rs = st.executeQuery("SELECT NAME, nSI_DO, nSI_GUN_GU, HOLIDAY FROM Library where nSI_DO='전라북도'");
+	        rs = st.executeQuery("SELECT NAME, nSI_DO, nSI_GUN_GU, ADDRESS, T_NAME, HP, ON_OFF FROM learning_program where nSI_DO='전라북도'");
 			while (rs.next()) {
 				sidoList.add(rs.getString("nSI_DO"));
 				sigunguList.add(rs.getString("nSI_GUN_GU"));
@@ -396,7 +392,7 @@ $(document).ready(function() {
 	        }
 	        sidoList.clear();
 	        sigunguList.clear();
-	        rs = st.executeQuery("SELECT NAME, nSI_DO, nSI_GUN_GU, HOLIDAY FROM Library where nSI_DO='충청남도'");
+	        rs = st.executeQuery("SELECT NAME, nSI_DO, nSI_GUN_GU, ADDRESS, T_NAME, HP, ON_OFF FROM learning_program where nSI_DO='충청남도'");
 			while (rs.next()) {
 				sidoList.add(rs.getString("nSI_DO"));
 				sigunguList.add(rs.getString("nSI_GUN_GU"));
@@ -412,7 +408,7 @@ $(document).ready(function() {
 	        }
 	        sidoList.clear();
 	        sigunguList.clear();
-	        rs = st.executeQuery("SELECT NAME, nSI_DO, nSI_GUN_GU, HOLIDAY FROM Library where nSI_DO='경상북도'");
+	        rs = st.executeQuery("SELECT NAME, nSI_DO, nSI_GUN_GU, ADDRESS, T_NAME, HP, ON_OFF FROM learning_program where nSI_DO='경상북도'");
 			while (rs.next()) {
 				sidoList.add(rs.getString("nSI_DO"));
 				sigunguList.add(rs.getString("nSI_GUN_GU"));
@@ -428,7 +424,7 @@ $(document).ready(function() {
 	        }
 	        sidoList.clear();
 	        sigunguList.clear();
-	        rs = st.executeQuery("SELECT NAME, nSI_DO, nSI_GUN_GU, HOLIDAY FROM Library where nSI_DO='대구광역시'");
+	        rs = st.executeQuery("SELECT NAME, nSI_DO, nSI_GUN_GU, ADDRESS, T_NAME, HP, ON_OFF FROM learning_program where nSI_DO='대구광역시'");
 			while (rs.next()) {
 				sidoList.add(rs.getString("nSI_DO"));
 				sigunguList.add(rs.getString("nSI_GUN_GU"));
@@ -444,7 +440,7 @@ $(document).ready(function() {
 	        }
 	        sidoList.clear();
 	        sigunguList.clear();
-	        rs = st.executeQuery("SELECT NAME, nSI_DO, nSI_GUN_GU, HOLIDAY FROM Library where nSI_DO='제주특별자치도'");
+	        rs = st.executeQuery("SELECT NAME, nSI_DO, nSI_GUN_GU, ADDRESS, T_NAME, HP, ON_OFF FROM learning_program where nSI_DO='제주특별자치도'");
 			while (rs.next()) {
 				sidoList.add(rs.getString("nSI_DO"));
 				sigunguList.add(rs.getString("nSI_GUN_GU"));
@@ -460,7 +456,7 @@ $(document).ready(function() {
 	        }
 	        sidoList.clear();
 	        sigunguList.clear();
-	        rs = st.executeQuery("SELECT NAME, nSI_DO, nSI_GUN_GU, HOLIDAY FROM Library where nSI_DO='세종특별자치시'");
+	        rs = st.executeQuery("SELECT NAME, nSI_DO, nSI_GUN_GU, ADDRESS, T_NAME, HP, ON_OFF FROM learning_program where nSI_DO='세종특별자치시'");
 			while (rs.next()) {
 				sidoList.add(rs.getString("nSI_DO"));
 				sigunguList.add(rs.getString("nSI_GUN_GU"));

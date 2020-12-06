@@ -1,19 +1,15 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-    
 <%-- <%@ page import="library.DBconnection" %> --%>
 <%@ page import="java.io.PrintWriter"%>
-<%@ page import="java.sql.*"%> 
+<%@ page import="java.sql.*"%>
 <%@ page import="java.sql.Connection"%>
 <%@ page import="java.sql.DriverManager"%>
 <%@ page import="java.sql.PreparedStatement"%>
-<%@ page import="java.sql.ResultSet" %>
-
 <%@ page import="java.util.ArrayList"%>
 <% request.setCharacterEncoding("UTF-8"); %>
-
-<jsp:useBean id="library_" class="library.Library" scope="page"/>
-<jsp:useBean id="Juso_" class="library.Juso" scope="page"/>
+<jsp:useBean id="Learning_Program_" class="lecture.Learning_Program" scope="page"/>
+<jsp:useBean id="Juso_" class="lecture.Juso" scope="page"/>
 
 <!DOCTYPE html>
 <html>
@@ -64,7 +60,6 @@ h3{font-family: 'Ropa Sans', sans-serif; font-size:26px;text-transform:uppercase
 </head>
 
 <body>
-		
 <%
 
 String sido = request.getParameter("mainCategory");
@@ -75,13 +70,18 @@ Juso_.setSigungu(sigungu);
 %>
 <h3>
 <%=Juso_.getSido() %>
-<%=Juso_.getSigungu() %>에 위치한 도서관 정보입니다. </h3>
+<%=Juso_.getSigungu() %>의 강좌 정보입니다. 
+
+</h3>
 <table border=0>
  			<tr>
-				<td>도서관명</td>
+				<td>강좌명</td>
 				<td>시도</td>
 				<td>시군구</td>
-				<td>휴관일</td>
+				<td>도로명주소</td>
+				<td>강사</td>
+				<td>연락처</td>
+				<td>수업방식</td>
 			</tr>
 		</table>
 <%
@@ -94,21 +94,29 @@ Juso_.setSigungu(sigungu);
 		String pw = "zxcasd123";
 		Connection con = DriverManager.getConnection(url, id, pw);
 		Statement st = con.createStatement();
-		ResultSet rs = st.executeQuery("SELECT NAME, nSI_DO, nSI_GUN_GU, HOLIDAY FROM Library where nSI_DO ='"+ sido +"'and nSI_GUN_GU ='"+ sigungu +"' ");
+		ResultSet rs = st.executeQuery("SELECT NAME, nSI_DO, nSI_GUN_GU, ADDRESS, T_NAME, HP, ON_OFF FROM Learning_Program where nSI_DO ='"+ sido +"'and nSI_GUN_GU ='"+ sigungu +"' ");
 		while (rs.next()) {
-			library_.setNAME(rs.getString("NAME"));
-			library_.setnSI_DO(rs.getString("nSI_DO"));
-			library_.setnSI_GUN_GU(rs.getString("nSI_GUN_GU"));
-			library_.setHOLIDAY(rs.getString("HOLIDAY"));
-/* 			out.println(library_.getNAME()+" "+library_.getnSI_DO()+" "+library_.getnSI_GUN_GU()+" "+library_.getHOLIDAY()+"<br>");*/
- %>
-		
+			Learning_Program_.setNAME(rs.getString("NAME"));
+			Learning_Program_.setnSI_DO(rs.getString("nSI_DO"));
+			Learning_Program_.setnSI_GUN_GU(rs.getString("nSI_GUN_GU"));
+			Learning_Program_.setADDRESS(rs.getString("ADDRESS"));
+			Learning_Program_.setT_NAME(rs.getString("T_NAME"));
+			Learning_Program_.setHP(rs.getString("HP"));
+			Learning_Program_.setON_OFF(rs.getString("ON_OFF"));
+/* 			out.println(library_.getNAME()+" "+library_.getnSI_DO()+" "+library_.getnSI_GUN_GU()+" "+library_.getADDRESS()+" "+library_.getT_NAME()+" "+library_.getHP()+" "+library_.getON_OFF()+"<br>");*/
+%>
+ 	
 		<table border=1>
 			<tr>
-		       <td><%=library_.getNAME() %></td>
-		       <td><%=library_.getnSI_DO() %></td>
-		       <td><%=library_.getnSI_GUN_GU() %></td>
-		       <td><%=library_.getHOLIDAY() %></td>
+		       <td><%=Learning_Program_.getNAME() %></td>
+		       <td><%=Learning_Program_.getnSI_DO() %></td>
+		       <td><%=Learning_Program_.getnSI_GUN_GU() %></td>
+		       <td><%=Learning_Program_.getADDRESS() %></td>
+				<td><%=Learning_Program_.getT_NAME() %></td>
+				<td><%=Learning_Program_.getHP() %></td>
+				<td><%=Learning_Program_.getON_OFF() %></td>
+				
+				
 		     </tr>  
 		</table>
 		

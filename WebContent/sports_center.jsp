@@ -21,8 +21,45 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <style>
-  table {border: 2px double pink; width:666px}
-  td,th{border:1px pink solid ; text-align: center; padding:5px}
+ <link href="CSS/styles.css" rel="stylesheet" type="text/css" />
+<link href='http://fonts.googleapis.com/css?family=Ropa+Sans' rel='stylesheet' type='text/css'>
+<link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro' rel='stylesheet' type='text/css'>
+
+* {
+  padding: 0;
+  margin: 0;
+}
+
+
+body {
+  background: #eeebe7;
+  padding: 100px 20px;
+  text-align: center;
+  position: absolute;
+
+  
+}
+
+h3{font-family: 'Ropa Sans', sans-serif; font-size:26px;text-transform:uppercase; font-weight:normal; color:#84817a; }
+
+
+
+
+
+  table {
+    width:1000px;
+    
+    border-collapse: collapse;
+  }
+  th, td {
+    border-bottom: 1px solid #444444;
+    padding-right:50px;
+   	padding-top:10px;
+   	text-align:left; 
+   	border:1px white;
+  }
+  td{width:250px}
+
 </style>
 </head>
 
@@ -33,9 +70,18 @@ String sigungu =request.getParameter("subCategory");
 Juso_.setSido(sido);
 Juso_.setSigungu(sigungu);
 %>
+<h3>
 <%=Juso_.getSido() %>
 <%=Juso_.getSigungu() %>에 위치한 스포츠 센터 정보입니다. 
-
+</h3>
+<table border=0>
+ 			<tr>
+				<td>시설명</td>
+				<td>시도</td>
+				<td>시군구</td>
+				<td>시설정보</td>
+			</tr>
+		</table>
 <%
 
 	/* String nSI_DO = request.getParameter("서울특별시"); */
@@ -43,9 +89,9 @@ Juso_.setSigungu(sigungu);
 	try{
 		String driver = "org.postgresql.Driver";
 		Class.forName(driver);
-		String url = "jdbc:postgresql://localhost:5432/postgres";
-		String id = "postgres";
-		String pw = "1234";
+		String url = "jdbc:postgresql://localhost:5432/Library";
+		String id = "hyewon";
+		String pw = "zxcasd123";
 		
 		
 		/* System.out.println("1"); */
