@@ -25,3 +25,14 @@ delete from noFacility where facility = '없음';
 
 select * from noFacility;
 ```
+## lecture selectbox 튜플 수정
+
+```sql
+DELETE FROM learning_program WHERE nsi_gun_gu = '전국';
+```
+```sql
+DELETE FROM learning_program WHERE nsi_gun_gu = '병설유치원(원통초.기린초.귀둔초.방동초)';
+```
+```sql
+DELETE FROM learning_program WHERE nsi_gun_gu = '해당 어린이집';
+```
