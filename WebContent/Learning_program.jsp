@@ -79,6 +79,7 @@ Juso_.setSigungu(sigungu);
 				<td>시도</td>
 				<td>시군구</td>
 				<td>도로명주소</td>
+				<td>요일</td>
 				<td>강사</td>
 				<td>연락처</td>
 				<td>수업방식</td>
@@ -94,12 +95,13 @@ Juso_.setSigungu(sigungu);
 		String pw = "zxcasd123";
 		Connection con = DriverManager.getConnection(url, id, pw);
 		Statement st = con.createStatement();
-		ResultSet rs = st.executeQuery("SELECT NAME, nSI_DO, nSI_GUN_GU, ADDRESS, T_NAME, HP, ON_OFF FROM Learning_Program where nSI_DO ='"+ sido +"'and nSI_GUN_GU ='"+ sigungu +"' ");
+		ResultSet rs = st.executeQuery("SELECT * FROM Learning_Program where nSI_DO ='"+ sido +"'and nSI_GUN_GU ='"+ sigungu +"' " + "and (operating_day <> '') IS TRUE");
 		while (rs.next()) {
 			Learning_Program_.setNAME(rs.getString("NAME"));
 			Learning_Program_.setnSI_DO(rs.getString("nSI_DO"));
 			Learning_Program_.setnSI_GUN_GU(rs.getString("nSI_GUN_GU"));
 			Learning_Program_.setADDRESS(rs.getString("ADDRESS"));
+			Learning_Program_.setOPERATING_DAY(rs.getString("OPERATING_DAY"));
 			Learning_Program_.setT_NAME(rs.getString("T_NAME"));
 			Learning_Program_.setHP(rs.getString("HP"));
 			Learning_Program_.setON_OFF(rs.getString("ON_OFF"));
@@ -112,6 +114,7 @@ Juso_.setSigungu(sigungu);
 		       <td><%=Learning_Program_.getnSI_DO() %></td>
 		       <td><%=Learning_Program_.getnSI_GUN_GU() %></td>
 		       <td><%=Learning_Program_.getADDRESS() %></td>
+		       <td><%=Learning_Program_.getOPERATING_DAY() %></td>
 				<td><%=Learning_Program_.getT_NAME() %></td>
 				<td><%=Learning_Program_.getHP() %></td>
 				<td><%=Learning_Program_.getON_OFF() %></td>

@@ -115,7 +115,7 @@ $(document).ready(function() {
 			String pw = "zxcasd123";
 			Connection con = DriverManager.getConnection(url, id, pw);
 			Statement st = con.createStatement();
-			ResultSet rs = st.executeQuery("SELECT NAME, nSI_DO, nSI_GUN_GU, ADDRESS, T_NAME, HP, ON_OFF FROM Learning_Program");
+			ResultSet rs = st.executeQuery("SELECT * FROM Learning_Program where (operating_day <> '') IS TRUE");
 			while (rs.next()) {
 				sidoList.add(rs.getString("nSI_DO"));
 				sigunguList.add(rs.getString("nSI_GUN_GU"));
