@@ -1,0 +1,74 @@
+/*-------------------------------------------------
+GLOBALS CLASSES
+-------------------------------------------------*/
+*{margin:0; padding:0; font-family: 'Ropa Sans', sans-serif;}
+body{background:url(../images/pattern-1.jpg);}
+
+p{font-family: 'Ropa Sans', sans-serif; color:#978e86; font-size:14px; font-weight:normal; line-height:20px;}
+a{text-decoration:none; color:#cf9359;}
+a:hover{text-decoration:none; color:#978e86;}
+ul li { list-style:none; outline:none;}
+img { border:none; width: 260px;}
+img { border:none;}
+h1{font-family: 'Ropa Sans', sans-serif; font-size:26px; color:#282623; text-transform:uppercase; font-weight:normal; }
+/*-------------------------------------------------
+CSS TWEAKS
+-------------------------------------------------*/
+.clearing { clear:both;}
+.fltLeft { float:left;}
+.flrRight { float:right;}
+.marLeft30 { margin-left:30px !important;}
+.marLeft20 { margin-left:20px;}
+.marRight20{ margin-right:20px;}
+.marRight25{ margin-right:25px;}
+.marRight30 { margin-right:30px; height: 410px;}
+.marginTop { margin-top:30px;}
+.marginTop10{ margin-top:10px;}
+.marginBottom { margin-bottom:60px;}
+.padTop { padding-top:20px;}
+.padBottom { padding-bottom:30px;}
+.padBottom20 { padding-bottom:20px;}
+.wid960{ width:960px !important; }
+/*-------------------------------------------------
+GENERAL CLASSES
+-------------------------------------------------*/
+
+.panel {overflow:hidden; }
+.title {}
+.content { overflow:hidden; font-size:14px;}
+.button-link{ }
+.button-link a{font-family: 'Ropa Sans', sans-serif; text-transform:uppercase;}
+.top-border{border-top:1px solid #dadacb; margin:20px 20px 14px 20px;}
+.bottom-border{border-top:1px solid #dadacb; margin:14px;}
+
+/*-------------------------------------------------
+HEADER CLASSES
+-------------------------------------------------*/
+.header{width:960px; margin:0 auto; overflow:hidden;}
+.header-left-panel{width:560px; float:left;}
+.logo-wrap{width:320px; float:left; background:#f3f3ee; overflow:hidden; }
+.logo{width:280px; float:left; margin-left:20px; margin-top:114px;}
+.logo h2{font-family: 'Ropa Sans', sans-serif; font-size:18px; color:#cf9359; text-transform:uppercase; font-weight:normal;}
+.logo h1{color:#50453b; font-size:42px; padding-bottom:22px;}
+.header-right-panel{width:400px; float:right; overflow:hidden; margin-top:30px;}
+.header-right-panel-top{width:280px; float:right;}
+.header-right-panel p{color:#cf9359; float:right; font-size:14px; text-align:right; font-weight:normal;}
+
+.menu{width:400px; float:left; margin-top:40px;}
+.menu ul li{float:left; padding-bottom:20px; width:120px;}
+.menu ul li a{display:block; width:120px; height:40px; line-height:40px; background:#414141; font-family: 'Source Sans Pro', sans-serif; font-size:14px; color:#ffffff; text-align:center; text-transform:uppercase;}
+.menu ul li a:hover{background:#cf9359; color:#282828;}
+.menu ul li a.active{background:#cf9359; color:#282828;}
+
+/*-------------------------------------------------
+박스 내용
+-------------------------------------------------*/
+.panel-wrap{width:100%; background:url(../images/pattern-2.jpg); overflow:hidden; margin-top:20px;}
+.panel-wrapper{width:960px; margin:0 auto; overflow:hidden; margin-top:60px; padding-bottom:60px;}
+
+.panel-wrapper .panel{width:260px; background:#f3f3ee; float:left; padding:20px; height: 400px;}
+.panel-wrapper .title {  padding-bottom:10px; position: absolute; top: 550px;}
+.panel-wrapper .title h1{color:#50453b; font-family: 'Source Sans Pro', sans-serif; font-weight:normal; padding-top:20px;}
+.panel-wrapper .border{border-bottom:1px solid #dadacb; }
+.panel-wrapper .content p{ width: 260px; padding-top:15px; position: absolute; top: 600px;}
+.panel-wrapper .button-link{ margin-top:20px; background:url(../images/icon-more.png) no-repeat; width:16px; height:16px; padding-bottom:30px;  padding-left:20px; position: absolute; top: 660px;}
